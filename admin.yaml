@@ -12,3 +12,5 @@ roles:
 - apiGroups: ["*"] # "" indicates the core API group
   resources: ["*"]
   verbs: ["*"] # Actions on resources, create, read, update, delete 
+  # Remember this only roboshop level not cluster level access
+---

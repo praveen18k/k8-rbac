@@ -13,4 +13,14 @@ roles:
   resources: ["*"]
   verbs: ["*"] # Actions on resources, create, read, update, delete 
   # Remember this only roboshop level not cluster level access
+  # you create role then you need to bind with some persons
 ---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  # "namespace" omitted since ClusterRoles are not namespaced
+  name: roboshop-cluster-reader
+rules:
+- apiGroups: ["v1","apps/v1",""]
+  resources: ["secrets","nodes","namespaces","persistentvolumes"]
+  verbs: ["get", "watch", "list"]
